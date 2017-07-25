@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>素材</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<style>
+		*{
+			font-family:"微软雅黑";
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			-ms-text-size-adjust: 100%;
+			-webkit-text-size-adjust: 100%;
+			/*font-family:"微软雅黑";*/
+			font-size:16px;
+			background: #F6F6F6;
+		}
+
+		ul,
+		li {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		@media only screen and (min-width: 400px){
+			html {font-size:17px !important;}
+		}
+
+		@media only screen and (min-width: 414px)  {
+			html {font-size:17px !important;}
+		}
+
+		.hg {
+			height: .5rem;
+		}
+
+		.fui-page {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.fui-page.fui-page-current,
+		.fui-page-group.fui-page-current {
+			overflow: hidden;
+		}
+
+		.fui-page.fui-page-current {
+			display: block;
+		}
+
+		.head-logo {
+			height:2.7rem;
+			width: 100%;
+			border-bottom: 1px solid #e0e0e0;
+			position: absolute;
+			display: flex;
+			background: white;
+			z-index: 10;
+		}
+
+		.head-logo div {
+			display: flex;
+		}
+
+		.head-logo .lf {
+			flex:0;
+			height: 100%;
+			align-items: center;
+		}
+
+		.head-logo i {
+			display: block;
+		}
+
+		.head-logo .lf .l-i {
+			background: url(img/head-back1.png) no-repeat;
+			width: 1rem;
+			height: 1.2rem;
+			background-size: 1rem 1.2rem;
+			margin-left: 0.6rem;
+		}
+
+		.head-logo .middle {
+			flex:1;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.head-logo .middle a {
+			display: inline-block;
+			width:33%;
+			text-align: center;
+			padding:11px;
+			text-decoration: none;
+			/*color: #000;*/
+		}
+
+		.head-logo .middle a:hover{
+			color: #3CB4B9;
+			border-bottom: 2px solid #3CB4B9;
+		}
+		.head-logo .middle a:active{
+			color: #3CB4B9;
+			border-bottom: 2px solid #3CB4B9;
+		}
+		.head-logo .rt {
+			flex:0;
+			height: 100%;
+			align-items: center;
+			justify-content: flex-end;
+		}
+
+		.head-logo .rt .r-i {
+			background: url(img/fx_03.png) no-repeat;
+			width: 1.2rem;
+			height: 1.3rem;
+			background-size: 1.2rem 1.3rem;
+			margin-right: 0.6rem;
+		}
+
+		.sc_fl {
+			width: 100%;
+		}
+
+		.sc_fl .sc_tit {
+			display: inline-block;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.page-goods-detail .fui-header {
+			top:2.4rem;
+		}
+
+		.fui-header {
+			height: 2.2rem;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: .8rem;
+			position: absolute;
+			top: 0;
+			margin: 0;
+			z-index: 1;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			background: #fff;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			border-bottom:1px solid #e0e0e0;
+		}
+
+		.page-goods-detail .fui-tab {
+			width: 100%;
+			margin: 0;
+		}
+
+		.fui-tab a:hover {
+			color: #ADADAD;
+		}
+
+		.fui-header .title {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			height: 2.2rem;
+			line-height: 3.2rem;
+			color: #333;
+			text-align: center;
+			position: absolute;
+			display: block;
+			width: 100%;
+			padding: 0;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+
+		.fui-page .fui-header div {
+			height: 3.4rem;
+			position: absolute;
+		}
+
+		.fui-page .fui-header div a {
+			padding: 0rem 10%;
+			height: 2rem;
+			line-height: 2rem;
+			font-size:16px;
+			/*font-weight: 600;''*/
+			/*color: #333333;*/
+		}
+
+		.Copy_box {
+			width: 100%;
+			margin-top: 6.3rem;
+			background: #F2F2F2;
+		}
+
+		.Copy_box div {
+			/*padding: .4rem 0.6rem 0;*/
+			padding: 1rem .6rem 0;
+			background: #fff;
+			margin:-1rem 0 2rem 0;
+		}
+
+		.copy {
+			padding-left: 0;
+		}
+
+		.copy .copy-tit {
+			color: #333;
+			font-size:13px;
+			line-height: 1.4rem;
+		}
+
+		.copy .copy-tit a {
+			display: inline-block;
+			padding: 0.01rem 0.3rem;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			color: #3CB4B9;
+			margin-right:0.5rem;
+		}
+
+		.copy .copy-img {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			padding: 0.3rem 0;
+			border-bottom: 1px solid #e0e0e0;
+		}
+
+		.copy-img a {
+			width: 30%;
+			display: inline-block;
+		}
+
+		.copy-img a img {
+			width: 100%;
+		}
+
+		.copy-ico {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			color: #ccc;
+			padding: .5rem 0;
+		}
+
+		.copy-ico a {
+			padding: 0 1.5rem;
+			font-size:13px;
+			color: #666;
+			margin-left:10px;
+		}
+
+		.copy-ico a:nth-child(1) {
+			border-right: 1px solid #F3F3F5;
+		}
+
+		.copy-ico a i {
+			display: inline-block;
+			margin-right: .2rem;
+		}
+
+		.copy-ico .ico-ljfx {
+			background: url(img/ljzf_03.png) no-repeat;
+			width: 1.2rem;
+			height: 1.3rem;
+			background-size: 1.2rem 1.3rem;
+			vertical-align: bottom;
+		}
+
+		.copy-ico .ico-yjzf {
+			background: url(img/fx_03.png) no-repeat;
+			width: 1.2rem;
+			height: 1.3rem;
+			background-size: 1.2rem 1.3rem;
+			vertical-align: bottom;
+		}
+
+		.matter {
+			margin-top: 13.4rem;
+		}
+
+		.matter .matter_wu {
+			padding: 0 0.8rem;
+		}
+
+		.matter .matter_wu div {
+			font-size: .6rem;
+			text-align: center;
+			color: #666666;
+		}
+
+		.matter .matter_wu .matter_ico {
+			display: inline-block;
+			width: 1.8rem;
+			height: 1.5rem;
+			background: url(img/sda_03.png) no-repeat;
+			background-size: contain;
+			margin-left: 45%;
+		}
+
+		.matter_ts {
+			margin-top: 3rem;
+		}
+
+		.matter_ts .ts-ico {
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			background: url(img/sda_07.png) no-repeat;
+			background-size: 100% 100%;
+			vertical-align: bottom;
+		}
+
+		.copy-show {
+			display: none;
+		}
+		.mask-tit{
+			margin-top: 30px;
+		 }
+		.mask_box {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.75);
+			z-index: 999;
+		}
+		.mask_box .mask {
+			width: 100%;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		.mask .mask-tit h1 {
+			text-align: center;
+			font-size:25px;
+			color: #3CB4B9;
+			font-weight: normal;
+		}
+		.mask .mask-tit p{
+			width:87%;
+			padding: 0 1.3rem;
+			font-size:13px;
+			text-align: center;
+			color:gray;
+			line-height:1.5rem;
+		}
+		.mask .mask-ul {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			padding-left: 0;
+			margin:6%;
+		}
+		.mask-ul li {
+			width:22%;
+		}
+		.mask-ul li p {
+			font-size:12px;
+			text-align: center;
+			color: #ADADAD;
+		}
+		.mask-ul img {
+			width:65%;
+			margin:3% 16%;
+		}
+		.cha {
+			width: 2rem;
+			height: 2rem;
+			margin: 0 0 7% 46%;
+		}
+		.cha img {
+			width:25px;
+			height:25px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="fui-page page-goods-detail">
+	<div class="head-logo">
+		<div class="lf" onclick="javascript:history.go(-1)"><i class="l-i"></i></div>
+		<div class="middle">
+			<a>详情</a>
+			<a class="middle_a">素材</a>
+		</div>
+		<div class="rt"><i class="r-i"></i></div>
+	</div>
+
+	<div class="">
+		<div class="fui-header " style="height:3rem;">
+			<div class="title">
+				<div id="tab" class="fui-tab fui-tab-danger">
+					<a class="" style="border-right:1px solid #F3F3F5;">官方精选</a>
+					<a class="tab-avti">我的素材</a>
+				</div>
+			</div>
+		</div>
+		<div class="cont-box">
+			<div class="Copy_box">
+				<div>
+					<ul class="copy">
+						<li class="copy-tit">
+							<a href="javascript:;">用户文案</a>
+							<span>在CDJ的官网看到的这款样子，觉得挺简单大方的，刚好去实体店试戴了一下，店里款式很多都很不错</span>
+						</li>
+						<li class="copy-img">
+							<a href="javascript:;">
+								<img src="image/02.png" />
+							</a>
+							<a href="javascript:;">
+								<img src="image/03.png" />
+							</a>
+							<a href="javascript:;">
+								<img src="image/04.png" />
+							</a>
+						</li>
+						<li class="copy-ico">
+							<a class="fenxiang"><i class="ico-ljfx"></i>立即分享</a>
+							<a href="relay.html" style="border-left:1px solid #F3F3F5;"><i class="ico-yjzf"></i>一件转发</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<ul class="copy">
+						<li class="copy-tit">
+							<a href="javascript:;">用户文案</a>
+							<span>在CDJ的官网看到的这款样子，觉得挺简单大方的，刚好去实体店试戴了一下，店里款式很多都很不错</span>
+						</li>
+						<li class="copy-img">
+							<a href="javascript:;">
+								<img src="image/02.png" />
+							</a>
+							<a href="javascript:;">
+								<img src="image/03.png" />
+							</a>
+							<a href="javascript:;">
+								<img src="image/04.png" />
+							</a>
+						</li>
+						<li class="copy-ico">
+							<a class="fenxiang"><i class="ico-ljfx"></i>立即分享</a>
+							<a href="relay.html" style="border-left:1px solid #F3F3F5;"><i class="ico-yjzf"></i>一件转发</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="matter copy-show">
+			<div class="matter_wu">
+				<i class="matter_ico"></i>
+				<div>
+					您还没有上传关于这个品牌的文案 点击右下角编写按钮，发布自己的文案吧
+				</div>
+				<div class="matter_ts">
+					<i class="ts-ico"></i>
+					<span>请不要上传与商品不符，带任何二维码及商品链接的文案！</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mask_box">
+	<div class="mask">
+		<div class="mask-tit">
+			<h1>收益￥<span>300</span></h1>
+			<div>
+				<p>
+					只要你的好友通过你的链接购买此商品，你就能赚到至少<span style="color:#3CB4B9">300</span>元利润哦~
+				</p>
+			</div>
+		</div>
+		<ul class="mask-ul">
+			<li>
+				<a href="">
+					<img src="img/sdasdasda_03.png" />
+				</a>
+				<p>分享商品</p>
+			</li>
+			<li>
+				<a >
+					<img src="img/sdasdasda_05.png" />
+				</a>
+				<p>商品链接</p>
+			</li>
+			<li>
+				<a >
+					<img src="img/sdasdasda_07.png" />
+
+				</a>
+				<p>商品二维码</p>
+			</li>
+		</ul>
+		<div class="cha">
+			<a><img src="img/sdasdasda_13.png"/></a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script>
+	$(function() {
+		$(".fenxiang").click("touchstart", function() {
+			$(".mask_box").fadeIn();
+		});
+		$(".cha>a").click("touchstart", function() {
+			$(".mask_box").fadeOut();
+		})
+	})
+
+	var shareData = {
+		img_url :"",
+		img_width :200,
+		img_height :200,
+		link : 'sqaiyan.com',
+		desc : '微信分享测试',
+		title : '博客',
+		appid : 0
+	};
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+// 发送给好友
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			shareFriend();
+		});
+// 分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			shareTimeline();
+		});
+//分享到微博
+		WeixinJSBridge.on('menu:share:weibo', function(argv) {
+			shareWeibo();
+		})
+	}, false);
+	//关注指定的微信号
+	function weixinAddContact(name) {
+		WeixinJSBridge.invoke("addContact", {
+			webtype : "1",
+			username : name
+		}, function(e) {
+			WeixinJSBridge.log(e.err_msg);
+//e.err_msg:add_contact:added 已经添加
+//e.err_msg:add_contact:cancel 取消添加
+//e.err_msg:add_contact:ok 添加成功
+			if (e.err_msg == 'add_contact:added' || e.err_msg == 'add_contact:ok') {
+//关注成功，或者已经关注过
+			}
+		})
+	}
+
+	function shareTimeline() {
+		WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
+			validateShare(res);
+			_report('timeline', res.err_msg);
+		});
+	}
+	function shareWeibo() {
+		WeixinJSBridge.invoke('shareWeibo', shareData, function(res) {
+			validateShare(res)
+			_report('weibo', res.err_msg);
+		});
+	}
+	function shareFriend() {
+		WeixinJSBridge.invoke('sendAppMessage', shareData, function(res) {
+			validateShare(res);
+			_report('send_msg', res.err_msg);
+		});
+	}
+	function validateShare(res) {
+		if (res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') {
+//返回信息判断
+		}
+	}
+</script>
+</body>
+
+</html>
+

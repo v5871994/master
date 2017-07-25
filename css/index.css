@@ -1,0 +1,232 @@
+*{
+    margin:0;padding:0;
+    font-family:"微软雅黑";
+    font-size:16px;
+    color:#333333;
+}
+header{
+    width: 100%;
+    height:40px;
+    line-height:60px;
+    background-color:#F9F7FA;
+}
+header img{
+    width:25px;
+    height:25px;
+    margin:5px;
+    font-size:20px;
+}
+header p{
+    width:56%;
+    height:40px;
+    margin-top:-9px;
+    display: inline-block;
+    float: right;
+    font-size:18px;
+}
+section{
+    width:100%;
+    height:100%;
+}
+section .banner{
+    width:100%;
+    height:200px;
+}
+section .banner img{
+    width:100%;
+    height:100%;
+}
+section .inquiry{
+    width:100%;
+    height:140px;
+}
+section .inquiry input{
+    width:92%;
+    height:30px;
+    margin:15px 3.4%;
+    border:0;
+    border-top:1px solid #3EB3BC;
+    border-bottom:1px solid #3EB3BC;
+}
+section .inquiry button{
+    width:93%;
+    height:35px;
+    margin:5px 11px;
+    color:#fff;
+    text-align: center;
+    border-radius:25px;
+    background-color:#3EB3BC;
+    border:0;
+}
+.sex{
+    width:100%;
+    height:65px;
+}
+.sex img{
+    width:25px;
+    height:25px;
+    margin-right:33%;
+    margin-left:6%;
+}
+.sex input{
+    width:41%;
+    height:20px;
+    margin-top: -3px;
+    border-top: 0;
+    border-bottom:1px solid #F3F3F5;
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 33px;
+    margin-left:5%;
+}
+#menu{
+    position: relative;
+    top:-7px;
+    width:90%;
+    height:100px;
+    margin:0 5%
+}
+#menu span{
+    position: absolute;
+    padding-top:15px;
+}
+#menu p{
+    width:100%;
+    height:55px;
+    border-bottom:1px solid #e0e0e0;
+}
+#menu input{
+    width: 77%;
+    height: 35px;
+    margin-left: 82px;
+    margin-top: 15px;
+    border: 0;
+}
+#menu img{
+    position: absolute;
+    right:0;
+    width:20px;
+    height:25px;
+    margin-top:12px;
+}
+.marry{
+    width:90%;
+    height:100%;
+    margin:0 5%;
+}
+.marry p{
+    margin:20px 0;
+}
+.marry p span{
+    width:45%;
+    height:30px;
+    color:#aaa;
+}
+.marry-1{
+    width:94%;
+    height:100%;
+    border:1px solid #F3F3F5;
+    padding: 2% 2%;
+    border-radius:7px;
+}
+.marry-1 p{
+    text-align: center;
+}
+.marry-1-1{
+    width:94%;
+    height:100%;
+    margin:3%;
+}
+#preview{
+    width:100%;
+    height:100%;
+}
+#preview img{
+    width:100%;
+    height:200px;
+}
+.button-2{
+    width:93%;
+    height:35px;
+    border:0;
+    margin:25px 7px 10px 11px;
+    color:#fff;
+    text-align: center;
+    border-radius:25px;
+    background-color:#BDBBBE;
+}
+.p1{
+    text-align: center;
+    color:#3EB3BD;
+    margin-top:0;
+    margin-bottom:35px;
+}
+.p2{
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 14px;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.p2 a{
+    color:#3EB3BD;
+}
+.list{
+    width: 80%;
+    height: 72%;
+    margin: 0 10%;
+    float: left;
+}
+.btm{
+    width: 100%;
+    padding-bottom: 23px;
+    float: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+.btm .list a{
+    text-decoration: none;
+    color: #666666;
+    width: 32%;
+    height: 100%;
+    float: left;
+}
+.btm .list a img{
+    width:60%;
+    margin: 0 21%;
+}
+.btm .list a p{
+    display: block;
+    width: 100%;
+    font-size:13px;
+    text-align: center;
+    color:gray;
+}
+footer{
+    clear: both;
+    width: 100%;
+    background:#F6F6F6;
+}
+footer p{
+    color: #e0e0e0;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    line-height:60px;
+}
+footer p img{
+    float: left;
+    margin-top:3%;
+    position:absolute;
+    top:9%;
+}
+footer p span{
+    color: #e0e0e0;
+    margin-left:28%;
+}
+footer .kong{
+    width:100%;
+    height:15px;
+    border-bottom:1px solid #e0e0e0;
+    background:#F2F2F2;
+}
