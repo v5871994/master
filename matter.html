@@ -395,6 +395,33 @@
             </div>
         </div>
         <div class="box"><p>加载完成</p></div>
+		<?php 
+   
+        $res = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8bc84c4432dcdea6&secret=25ab07d13988f8da860ad05920e60b6c');
+        $res = json_decode($res, true);
+		
+        $token = $res['access_token'];
+		
+        $url2 ="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$token."&type=jsapi";
+        $res1 = file_get_contents($url2);
+		
+        $res1 = json_decode($res1, true);
+        $ticket = $res1['ticket'];
+		
+		$timestamp = time();
+            $wxnonceStr = "wx8bc84c4432dcdea6";
+            $wxticket = $ticket;
+			 
+            $wxOri = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s",
+                $wxticket, $wxnonceStr, $timestamp,
+                'http://www.cdj1946.cn/master/matter.html'
+                );
+				
+           $wxSha1 = sha1($wxOri);
+		  
+		   
+			 
+     ?>
     </div>
     <div class="mask_box">
         <div class="mask">
@@ -412,33 +439,15 @@
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<?php 
-   
-        $res = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8bc84c4432dcdea6&secret=25ab07d13988f8da860ad05920e60b6c');
-        $res = json_decode($res, true);
-        $token = $res['access_token'];
-		
-        $url2 = sprintf("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=jsapi",
-            $token);
-        $res1 = file_get_contents($url2);
-        $res1 = json_decode($res1, true);
-        $ticket = $res1['ticket'];
-		$timestamp = time();
-            $wxnonceStr = "任意字符串";
-            $wxticket = wx_get_jsapi_ticket();
-            $wxOri = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s",
-                $wxticket, $wxnonceStr, $timestamp,
-                '要分享的url(从http开始，如果有参数，包含参数）'
-                );
-           $wxSha1 = sha1($wxOri);
-     ?>
+
      <script type="text/javascript">
+	 
       wx.config({
     debug: true, 
       appId: 'wx8bc84c4432dcdea6', // 公众号的唯一标识
-    timestamp: '<?php echo $timestamp; ?>', // 生成签名的时间戳
-    nonceStr: '<?php echo $wxnonceStr; ?>', // 生成签名的随机串
-    signature: '<?php echo $wxSha1; ?>',// 签名
+    timestamp: "<?php echo $timestamp; ?>", // 生成签名的时间戳
+    nonceStr: "<?php echo $wxnonceStr; ?>", // 生成签名的随机串
+    signature: "<?php echo $wxSha1; ?>",// 签名
       jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']  // 需要使用的JS接口列表
   });
 </script> 
