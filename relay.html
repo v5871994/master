@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>一键转发</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <script src=" vc bvvb http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
     <style>
         *{
             margin:0;padding:0;
@@ -100,19 +100,15 @@
             border-radius:5px;
             margin-right:5%;
             border: 1px solid #3EB3BC;
-        }
-        .bottom .btn01 a{
             color: #3EB3BC;
         }
         .bottom .btn02{
             width: 40%;
             height:45px;
+            color: #fff;
             background-color: #3EB3BC;
             border-radius: 5px;
             border: 1px solid #3EB3BC;
-        }
-        .bottom .btn02 a{
-            color: #fff;
         }
         .mask-tit{
             margin-top: 30px;
@@ -125,6 +121,7 @@
             height: 100%;
             background: rgba(0,0,0,0.75);
             z-index: 999;
+            display: none;
         }
         .mask_box .mask {
             width: 100%;
@@ -201,83 +198,133 @@
 </div>
 <footer>
     <div class="bottom">
-        <button class="btn01" ><a href="">下载图片</a></button>
-        <button class="btn02"><a href="">创建转发</a></button>
+        <button class="btn01" >下载图片</a></button>
+        <button class="btn02">创建转发</a></button>
     </div>
 </footer>
-<!--<div class="mask_box">-->
-    <!--<div class="mask">-->
-        <!--<ul class="mask-ul">-->
-            <!--<li><a href="javascript:;"><img src="image/py.png" /></a><p>发送给朋友</p></li>-->
-            <!--<li><a href="javascript:;"><img src="image/pyq.png" /></a><p>分享到朋友圈</p></li>-->
-            <!--<li><a href="javascript:;"><img src="image/sx.png" /></a><p>刷新</p></li>-->
-        <!--</ul>-->
-        <!--<div class="cha">-->
-            <!--<a><img src="img/sdasdasda_13.png"/></a>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+<div class="mask_box">
+    <div class="mask">
+        <ul class="mask-ul">
+            <li><a href="javascript:;"><img src="image/sdasdasda_03.png" /></a><p>分享商品</p></li>
+            <li id="aaa"><a href="javascript:;"><img src="image/sdasdasda_05.png"  /></a><p>商品链接</p></li>
+            <li><a href="javascript:;"><img src="image/sdasdasda_07.png" /></a><p>商品二维码</p></li>
+        </ul>
+        <div class="cha">
+            <a><img src="image/sdasdasda_13.png"/></a>
+        </div>
+    </div>
+</div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 
 
 <script>
-
+//    下载图片
     $(function(){
         function download(src) {
             var $a = document.createElement('a');
             $a.setAttribute("href", src);
             $a.setAttribute("download", "");
-
             var evObj = document.createEvent('MouseEvents');
             evObj.initMouseEvent( 'click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
             $a.dispatchEvent(evObj);
         };
-
         $('img').click(function () {
            var src=this.src;
 
          $('.btn01').click(function(){
              download(src);
           });
-        })
-    })
-
-
-//    $(function() {
-//        $(".btn02").click("touchstart", function() {
-//           $(".mask_box").fadeIn();
-//        });
-//        $(".cha>a").click("touchstart", function() {
-//            $(".mask_box").fadeOut();
-//        })
-//    })
-
-    $(function() {
+        });
+//        弹出遮罩层
+        $(".btn02").click("touchstart", function() {
+            $(".mask_box").fadeIn();
+        });
+        $(".cha>a").click("touchstart", function() {
+            $(".mask_box").fadeOut();
+        });
+//        点击圆圈+1 -1
         $(".icon").click(function() {
             $(this).toggleClass('active');
             $(this).toggleClass('bg');
-        })
-    });
-   $(document).ready(function(){
-       var i=1;
-       $('.img>ul>li').click(function(){
-           if($(this).html()==''){
-               $(this).html(i++);
+        });
+        var i=1;
+        $('.icon').click(function(){
+            if($(this).html()==''){
+                $(this).html(i++);
             }else if($(this).html()!=''){
-               i--;
-//               $(this).html('').addClass('.bg');
-               var n=1;
-               $('.active').each(function(){
-                   $(this).html(n);
-                   n++;
-               })
-           }
-       });
-});
+                i--;
+                $(this).html('').addClass('.bg');
+                var n=1;
+                $('.active').each(function(){
+                    $(this).html(n);
+                    n++;
+                })
+            }
+        });
+//        分享
+            var shareData = {
+            img_url : "",
+            img_width : 200,
+            img_height : 200,
+            link : 'sqaiyan.com',
+            desc : '素材',
+            title : '博客',
+            appid : 'wx8bc84c4432dcdea6',
+        };
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 发送给好友
+            WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+                shareFriend();
+            });
+            // 分享到朋友圈
+            WeixinJSBridge.on('menu:share:timeline', function(argv) {
+            shareTimeline();
+        });
+            //分享到微博
+            WeixinJSBridge.on('menu:share:weibo', function(argv) {
+            shareWeibo();
+        })
+        }, false);
+            //关注指定的微信号
+            function weixinAddContact(name) {
+            WeixinJSBridge.invoke("addContact", {
+                webtype : "1",
+                username : name
+            }, function(e) {
+                WeixinJSBridge.log(e.err_msg);
+                //e.err_msg:add_contact:added 已经添加
+                //e.err_msg:add_contact:cancel 取消添加
+                //e.err_msg:add_contact:ok 添加成功
+                if (e.err_msg == 'add_contact:added' || e.err_msg == 'add_contact:ok') {
+                    //关注成功，或者已经关注过
+                }
+            })
+        }
+
+            function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
+                validateShare(res);
+                _report('timeline', res.err_msg);
+            });
+        }
+            function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo', shareData, function(res) {
+                validateShare(res)
+                _report('weibo', res.err_msg);
+            });
+        }
+            function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage', shareData, function(res) {
+                validateShare(res);
+                _report('send_msg', res.err_msg);
+            });
+        }
+            function validateShare(res) {
+            if (res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') {
+            //返回信息判断
+        }
+        }
+    });
 </script>
-<?php
-
-
-?>
 </body>
 </html>

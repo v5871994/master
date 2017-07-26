@@ -83,7 +83,7 @@
 		}
 
 		.head-logo .lf .l-i {
-			background: url(img/head-back1.png) no-repeat;
+			background: url(image/head-back1.png) no-repeat;
 			width: 1rem;
 			height: 1.2rem;
 			background-size: 1rem 1.2rem;
@@ -122,7 +122,7 @@
 		}
 
 		.head-logo .rt .r-i {
-			background: url(img/fx_03.png) no-repeat;
+			background: url(image/fx_03.png) no-repeat;
 			width: 1.2rem;
 			height: 1.3rem;
 			background-size: 1.2rem 1.3rem;
@@ -284,7 +284,7 @@
 		}
 
 		.copy-ico .ico-ljfx {
-			background: url(img/ljzf_03.png) no-repeat;
+			background: url(image/ljzf_03.png) no-repeat;
 			width: 1.2rem;
 			height: 1.3rem;
 			background-size: 1.2rem 1.3rem;
@@ -292,7 +292,7 @@
 		}
 
 		.copy-ico .ico-yjzf {
-			background: url(img/fx_03.png) no-repeat;
+			background: url(image/fx_03.png) no-repeat;
 			width: 1.2rem;
 			height: 1.3rem;
 			background-size: 1.2rem 1.3rem;
@@ -317,7 +317,7 @@
 			display: inline-block;
 			width: 1.8rem;
 			height: 1.5rem;
-			background: url(img/sda_03.png) no-repeat;
+			background: url(image/sda_03.png) no-repeat;
 			background-size: contain;
 			margin-left: 45%;
 		}
@@ -330,7 +330,7 @@
 			display: inline-block;
 			width: 1rem;
 			height: 1rem;
-			background: url(img/sda_07.png) no-repeat;
+			background: url(image/sda_07.png) no-repeat;
 			background-size: 100% 100%;
 			vertical-align: bottom;
 		}
@@ -349,6 +349,7 @@
 			height: 100%;
 			background: rgba(0,0,0,0.75);
 			z-index: 999;
+			display: none;
 		}
 		.mask_box .mask {
 			width: 100%;
@@ -432,15 +433,9 @@
 							<span>在CDJ的官网看到的这款样子，觉得挺简单大方的，刚好去实体店试戴了一下，店里款式很多都很不错</span>
 						</li>
 						<li class="copy-img">
-							<a href="javascript:;">
-								<img src="image/02.png" />
-							</a>
-							<a href="javascript:;">
-								<img src="image/03.png" />
-							</a>
-							<a href="javascript:;">
-								<img src="image/04.png" />
-							</a>
+							<a href="javascript:;"><img src="image/02.png" /></a>
+							<a href="javascript:;"><img src="image/03.png" /></a>
+							<a href="javascript:;"><img src="image/04.png" /></a>
 						</li>
 						<li class="copy-ico">
 							<a class="fenxiang"><i class="ico-ljfx"></i>立即分享</a>
@@ -455,15 +450,9 @@
 							<span>在CDJ的官网看到的这款样子，觉得挺简单大方的，刚好去实体店试戴了一下，店里款式很多都很不错</span>
 						</li>
 						<li class="copy-img">
-							<a href="javascript:;">
-								<img src="image/02.png" />
-							</a>
-							<a href="javascript:;">
-								<img src="image/03.png" />
-							</a>
-							<a href="javascript:;">
-								<img src="image/04.png" />
-							</a>
+							<a href="javascript:;"><img src="image/02.png" /></a>
+							<a href="javascript:;"><img src="image/03.png" /></a>
+							<a href="javascript:;"><img src="image/04.png" /></a>
 						</li>
 						<li class="copy-ico">
 							<a class="fenxiang"><i class="ico-ljfx"></i>立即分享</a>
@@ -492,34 +481,16 @@
 		<div class="mask-tit">
 			<h1>收益￥<span>300</span></h1>
 			<div>
-				<p>
-					只要你的好友通过你的链接购买此商品，你就能赚到至少<span style="color:#3CB4B9">300</span>元利润哦~
-				</p>
+				<p>只要你的好友通过你的链接购买此商品，你就能赚到至少<span style="color:#3CB4B9">300</span>元利润哦~</p>
 			</div>
 		</div>
 		<ul class="mask-ul">
-			<li>
-				<a href="">
-					<img src="img/sdasdasda_03.png" />
-				</a>
-				<p>分享商品</p>
-			</li>
-			<li>
-				<a >
-					<img src="img/sdasdasda_05.png" />
-				</a>
-				<p>商品链接</p>
-			</li>
-			<li>
-				<a >
-					<img src="img/sdasdasda_07.png" />
-
-				</a>
-				<p>商品二维码</p>
-			</li>
+			<li><a href="javascript:;"><img src="image/sdasdasda_03.png" /></a><p>分享商品</p></li>
+			<li><a href="javascript:;"><img src="image/sdasdasda_05.png" /></a><p>商品链接</p></li>
+			<li><a href="javascript:;"><img src="image/sdasdasda_07.png" /></a><p>商品二维码</p></li>
 		</ul>
 		<div class="cha">
-			<a><img src="img/sdasdasda_13.png"/></a>
+			<a><img src="image/sdasdasda_13.png"/></a>
 		</div>
 	</div>
 </div>
@@ -533,69 +504,6 @@
 			$(".mask_box").fadeOut();
 		})
 	})
-
-	var shareData = {
-		img_url :"",
-		img_width :200,
-		img_height :200,
-		link : 'sqaiyan.com',
-		desc : '微信分享测试',
-		title : '博客',
-		appid : 0
-	};
-	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-// 发送给好友
-		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-			shareFriend();
-		});
-// 分享到朋友圈
-		WeixinJSBridge.on('menu:share:timeline', function(argv) {
-			shareTimeline();
-		});
-//分享到微博
-		WeixinJSBridge.on('menu:share:weibo', function(argv) {
-			shareWeibo();
-		})
-	}, false);
-	//关注指定的微信号
-	function weixinAddContact(name) {
-		WeixinJSBridge.invoke("addContact", {
-			webtype : "1",
-			username : name
-		}, function(e) {
-			WeixinJSBridge.log(e.err_msg);
-//e.err_msg:add_contact:added 已经添加
-//e.err_msg:add_contact:cancel 取消添加
-//e.err_msg:add_contact:ok 添加成功
-			if (e.err_msg == 'add_contact:added' || e.err_msg == 'add_contact:ok') {
-//关注成功，或者已经关注过
-			}
-		})
-	}
-
-	function shareTimeline() {
-		WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
-			validateShare(res);
-			_report('timeline', res.err_msg);
-		});
-	}
-	function shareWeibo() {
-		WeixinJSBridge.invoke('shareWeibo', shareData, function(res) {
-			validateShare(res)
-			_report('weibo', res.err_msg);
-		});
-	}
-	function shareFriend() {
-		WeixinJSBridge.invoke('sendAppMessage', shareData, function(res) {
-			validateShare(res);
-			_report('send_msg', res.err_msg);
-		});
-	}
-	function validateShare(res) {
-		if (res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') {
-//返回信息判断
-		}
-	}
 </script>
 </body>
 
