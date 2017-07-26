@@ -411,6 +411,61 @@
 </div>
 
 <script src="js/jquery-1.11.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<?php 
+     $timestamp = time(); 
+     $nonceStr = 'Wm3WZYTPz0wzccnd';
+     $ticket = $this->getTicket();
+     $signature = 'jsapi_ticket='.$ticket.'&noncestr='.$nonceStr.'&timestamp='.$timestamp.'&url=http://campaign.mioji.com/online/xmas2015';
+$signature = sha1($signature);
+public function getTicket()
+
+    {
+
+        $token_url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8bc84c4432dcdea6&secret=25ab07d13988f8da860ad05920e60b6c';
+
+        $re = $this->curl(array(
+
+            'url' => $token_url,
+
+            'timeout' => 120
+
+        ));
+
+        $token_arr = json_decode($re, true);
+
+        $token = $token_arr['access_token'];
+
+
+
+        $ticket_url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='.$token.'&type=jsapi';
+
+        $re = $this->curl(array(
+
+            'url' => $ticket_url,
+
+            'timeout' => 120
+
+        ));
+
+        $ticket_arr = json_decode($re, true);
+
+        $re = $ticket_arr['ticket'];
+
+        return $re;
+
+    }
+     ?>
+     <script type="text/javascript">
+      wx.config({
+    debug: true, 
+      appId: 'wx8bc84c4432dcdea6', // 公众号的唯一标识
+    timestamp: '<?php echo $timestamp; ?>', // 生成签名的时间戳
+    nonceStr: '<?php echo $nonceStr; ?>', // 生成签名的随机串
+    signature: '<?php echo $signature; ?>',// 签名
+      jsApiList: ['onMenuShareTimeline'] // 需要使用的JS接口列表
+  });
+</script> 
 <script>
     var shareData = {
         img_url : "http://pic44.nipic.com/20140717/12432466_121957328000_2.jpg",
