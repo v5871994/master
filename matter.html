@@ -82,7 +82,7 @@
         }
 
         .head-logo .lf .l-i {
-            background: url(img/head-back1.png) no-repeat;
+            background: url(image/head-back1.png) no-repeat;
             width: 1rem;
             height: 1.2rem;
             background-size: 1rem 1.2rem;
@@ -121,7 +121,7 @@
         }
 
         .head-logo .rt .r-i {
-            background: url(img/fx_03.png) no-repeat;
+            background: url(image/fx_03.png) no-repeat;
             width: 1.2rem;
             height: 1.3rem;
             background-size: 1.2rem 1.3rem;
@@ -283,7 +283,7 @@
         }
 
         .copy-ico .ico-ljfx {
-            background: url(img/ljzf_03.png) no-repeat;
+            background: url(image/ljzf_03.png) no-repeat;
             width: 1.2rem;
             height: 1.3rem;
             background-size: 1.2rem 1.3rem;
@@ -291,7 +291,7 @@
         }
 
         .copy-ico .ico-yjzf {
-            background: url(img/fx_03.png) no-repeat;
+            background: url(image/fx_03.png) no-repeat;
             width: 1.2rem;
             height: 1.3rem;
             background-size: 1.2rem 1.3rem;
@@ -306,6 +306,51 @@
             color:#B1B1B3;
             text-align: center;
             margin-top:20px;
+        }
+        .mask_box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 999;
+            display: none;
+        }
+        .mask_box .mask {
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .mask .mask-ul {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-left: 0;
+            margin:6%;
+        }
+        .mask-ul li {
+            width:22%;
+        }
+        .mask-ul li p {
+            font-size:12px;
+            text-align: center;
+            color: #ADADAD;
+        }
+        .mask-ul img {
+            width:65%;
+            margin:3% 16%;
+        }
+        .cha {
+            width: 2rem;
+            height: 2rem;
+            margin: 0 0 7% 46%;
+        }
+        .cha img {
+            width:25px;
+            height:25px;
         }
     </style>
 </head>
@@ -337,15 +382,9 @@
                             <span>18K水晶吊坠，以“纯净珍贵之爱”为灵魂来源，设计出独特的水晶瓶造型，象征情之纯，爱之净的情恋，把爱装进心中，让爱隽永，闪耀颈间。</span>
                         </li>
                         <li class="copy-img">
-                            <a href="javascript:;">
-                                <img src="image/02.png" />
-                            </a>
-                            <a href="javascript:;">
-                                <img src="image/03.png" />
-                            </a>
-                            <a href="javascript:;">
-                                <img src="image/04.png" />
-                            </a>
+                            <a href="javascript:;"><img src="image/02.png" /></a>
+                            <a href="javascript:;"><img src="image/03.png" /></a>
+                            <a href="javascript:;"><img src="image/04.png" /></a>
                         </li>
                         <li class="copy-ico">
                             <a class="fenxiang"><i class="ico-ljfx"></i>立即分享</a>
@@ -355,10 +394,57 @@
                 </div>
             </div>
         </div>
-        <div class="box">
-            <p>加载完成</p>
+        <div class="box"><p>加载完成</p></div>
+    </div>
+    <div class="mask_box">
+        <div class="mask">
+            <ul class="mask-ul">
+                <li onclick="shareFriend()"><a href="javascript:;"><img src="image/sdasdasda_03.png" /></a><p>分享商品</p></li>
+                <li><a href="javascript:;"><img src="image/sdasdasda_05.png" /></a><p>商品链接</p></li>
+                <li><a href="javascript:;"><img src="image/sdasdasda_07.png" /></a><p>商品二维码</p></li>
+            </ul>
+            <div class="cha">
+                <a><img src="image/sdasdasda_13.png"/></a>
+            </div>
         </div>
     </div>
 </div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    var shareData = {
+        img_url : "http://pic44.nipic.com/20140717/12432466_121957328000_2.jpg",
+        img_width : 200,
+        img_height : 200,
+        link : window.location.href,
+        desc : '微信分享测试',
+        title : '博客',
+        appid : "wx8bc84c4432dcdea6",
+    };
+   
+    function shareFriend() {
+	
+        WeixinJSBridge.invoke('sendAppMessage', shareData, function(res) {
+		alert(JSON.stringify(res));
+            validateShare(res);
+            _report('send_msg', res.err_msg);
+        });
+    };
+    function shareTimeline() {
+        WeixinJSBridge.invoke('shareTimeline', shareData, function(res) {
+            validateShare(res);
+            _report('timeline', res.err_msg);
+        });
+    }
+    $(function() {
+
+        $(".fenxiang").click("touchstart", function() {
+            $(".mask_box").fadeIn();
+        });
+        $(".cha>a").click("touchstart", function() {
+            $(".mask_box").fadeOut();
+        })
+    })
+</script>
 </body>
 </html>
